@@ -33,6 +33,6 @@ public interface SqlSession {
     void close() throws SQLException;
 
 
-    //为Dao接口生成代理实现类
+    //TODO 为Dao接口生成代理实现类
     <T> T getMapper(Class<?> mapperClass);
 }

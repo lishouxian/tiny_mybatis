@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @auther: lishouxian
+ * @author lishouxian
  * @date: 2020/11/29 20:02
- * @description: DefaultSqlSession
+ * @description DefaultSqlSession
  */
 public class DefaultSqlSession implements SqlSession{
 

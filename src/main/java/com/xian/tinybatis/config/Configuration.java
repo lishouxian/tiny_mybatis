@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @auther: lishouxian
+ * @author: lishouxian
  * @date: 2020/11/29 20:04
  * @description: Configuration
  */
