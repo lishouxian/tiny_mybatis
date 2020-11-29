@@ -15,7 +15,7 @@ import java.util.Properties;
  */
 public class DirectConfiguration {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://47.103.199.145:3306/HRManagement?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai";
+    private static final String url = "jdbc:mysql://47.103.199.145:3306/mybatis_core_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai";
     private static final String username = "root";
     private static final String password = "123456";
 
@@ -26,13 +26,15 @@ public class DirectConfiguration {
     public static Configuration getConfiguration() {
         Properties pro = new Properties();
         try {
-            pro.load(DirectConfiguration.class.getClassLoader().getResourceAsStream("druid.properties"));
+//            pro.load(DirectConfiguration.class.getClassLoader().getResourceAsStream("druid.properties"));
             System.out.println(pro);
-            dataSource = DruidDataSourceFactory.createDataSource(pro);
-            HashMap<String, String> map = new HashMap<>();
-            map.put("driver",driver);
+//            dataSource = DruidDataSourceFactory.createDataSource(pro);
+            pro.setProperty("url",url);
+            pro.setProperty("username",username);
+            pro.setProperty("password",password);
+            pro.setProperty("driver",driver);
 
-            dataSource = DruidDataSourceFactory.createDataSource(map);
+            dataSource = DruidDataSourceFactory.createDataSource(pro);
             System.out.println(dataSource);
             System.out.println(dataSource.getConnection());
         } catch (Exception e) {
