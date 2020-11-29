@@ -1,6 +1,7 @@
 package com.xian.tinybatis.sqlSession;
 
 import com.xian.tinybatis.config.Configuration;
+import com.xian.tinybatis.config.DirectConfiguration;
 import org.dom4j.DocumentException;
 
 import java.beans.PropertyVetoException;
@@ -18,20 +19,27 @@ public class SqlSessionFactoryBuilder {
         this.configuration = new Configuration();
     }
 
-    public SqlSessionFactory build(InputStream inputStream) throws DocumentException, PropertyVetoException, ClassNotFoundException {
+    public SqlSessionFactory build(InputStream inputStream) {
 
         //TODO 从xml文件中读取配置文件
         //XMLConfigBuilder xmlConfigerBuilder = new XMLConfigBuilder(configuration);
 
         //TODO 从xml文件中解析配置文件
-        //Configuration configuration = xmlConfigerBuilder.parseConfiguration(inputStream);
+//        Configuration configuration = xmlConfigerBuilder.parseConfiguration(inputStream);
 
         //获取到默认的数据库配置
-        Configuration configuration = new Configuration();
+        Configuration configuration = DirectConfiguration.getConfiguration();
         SqlSessionFactory sqlSessionFactory = new DefaultSqlSessionFactory(configuration);
 
         //返回一个sqlSessionFactory
         return sqlSessionFactory;
     }
 
+    public SqlSessionFactory build() {
+        Configuration configuration = DirectConfiguration.getConfiguration();
+        SqlSessionFactory sqlSessionFactory = new DefaultSqlSessionFactory(configuration);
+
+        //返回一个sqlSessionFactory
+        return sqlSessionFactory;
+    }
 }

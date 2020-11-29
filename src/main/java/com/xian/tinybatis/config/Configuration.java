@@ -17,7 +17,7 @@ public class Configuration {
     private DataSource dataSource;
 
     public DataSource getDataSource() {
-        return DataSourceConfiguration.getDataSource();
+        return dataSource;
     }
 
     public void setDataSource(DataSource dataSource) {
