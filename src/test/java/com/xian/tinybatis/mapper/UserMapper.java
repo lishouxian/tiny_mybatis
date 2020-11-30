@@ -6,22 +6,24 @@ import com.xian.tinybatis.bean.User;
 
 import java.util.List;
 /**
- * @auther: lishouxian
- * @date: 2020/11/29 19:55
- * @description: user
+ * @author lishouxian
+ * @since 2020/11/29 19:55
+ *  user
  */
 public interface UserMapper {
 
     //查询所有用户
-    List<User> findAll() throws Exception;
+    List<User> selectList();
 
     //根据条件进行用户查询
-    User findByCondition(User user) throws Exception;
+    User selectOne(User user);
 
-    int updatePasswordById(User user) throws Exception;
+    User selectOById(Integer id);
 
-    int insertUser(User user) throws Exception;
+    int updateById(User user);
 
-    int deleteUser(User user) throws Exception;
+    int insert(User user);
+
+    int delete(User user);
 
 }

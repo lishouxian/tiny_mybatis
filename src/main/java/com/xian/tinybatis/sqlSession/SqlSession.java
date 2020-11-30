@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @auther: lishouxian
- * @date: 2020/11/29 20:00
- * @description: SqlSession
+ * @author lishouxian
+ * @since 2020/11/29 20:00
+ *  SqlSession
  */
 public interface SqlSession {
     <E> List<E> selectList(String statementId, Object param) throws

@@ -1,18 +1,16 @@
-package com.xian.tinybatis.config;
+package com.xian.tinybatis.test;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.xian.tinybatis.config.Configuration;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Properties;
 
 /**
  *
- * @author: lishouxian
- * @date: 2020/11/29 20:18
- * @description: DataSourceConfiguration
+ * @author lishouxian
+ * @since 2020/11/29 20:18
+ *  DataSourceConfiguration
  */
 public class DirectConfiguration {
 

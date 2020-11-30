@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author lishouxian
- * @date: 2020/11/29 20:02
+ * @since 2020/11/29 20:02
  * @description DefaultSqlSession
  */
 public class DefaultSqlSession implements SqlSession{
@@ -59,7 +59,7 @@ public class DefaultSqlSession implements SqlSession{
 
     }
 
-    public <T> T getMapper(Class<?> mapperClass) {
-        return null;
+    public <T> T getMapper(Class<?> type) {
+        return configuration.<T>getMapper(type, this);
     }
 }

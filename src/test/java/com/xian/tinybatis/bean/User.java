@@ -3,9 +3,9 @@ package com.xian.tinybatis.bean;
 import lombok.Data;
 
 /**
- * @auther: lishouxian
- * @date: 2020/11/29 19:55
- * @description: user
+ * @author lishouxian
+ * @since 2020/11/29 19:55
+ *  user
  */
 
 @Data
