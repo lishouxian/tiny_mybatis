@@ -21,11 +21,14 @@ public class DefaultExecutor implements Executor {
     @Override
     public <E> List<E> query(MappedStatement mappedStatement, Configuration configuration) {
         Statement stmt = prepareStatement(configuration);
+        ResultSet resultSet = null;
         try {
-            ResultSet resultSet = stmt.executeQuery(mappedStatement.getSqlCommand());
+            resultSet = stmt.executeQuery(mappedStatement.getSqlCommand());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
     }
 
 
