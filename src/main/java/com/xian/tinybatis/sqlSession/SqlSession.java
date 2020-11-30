@@ -1,5 +1,7 @@
 package com.xian.tinybatis.sqlSession;
 
+import com.xian.tinybatis.config.Configuration;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,4 +37,6 @@ public interface SqlSession {
 
     //TODO 为Dao接口生成代理实现类
     <T> T getMapper(Class<?> mapperClass);
+
+    Configuration getConfiguration();
 }

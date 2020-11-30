@@ -12,17 +12,24 @@ import java.lang.reflect.Method;
  * @since 2020/11/30 09:57
  */
 public class MapperMethod {
-    private SqlCommand command;
+    private String command;
     private final MethodSignature method;
 
     public MapperMethod(Class<?> mapperInterface, Method method, Configuration config) {
-        this.command = new SqlCommand(config, mapperInterface, method);
-        this.method = new MethodSignature(config, method);
+        // 创建 SqlCommand 对象，该对象包含一些和 SQL 相关的信息
+        this.command = new String();
+        // 创建 MethodSignature 对象，由类名可知，该对象包含了被拦截方法的一些信息
+        this.method = new MethodSignature();
     }
 
     public Object execute(SqlSession sqlSession, Object[] args) {
+        Object result = null;
+
+
+
+        return result;
     }
 
-    public static class SqlCommand {}
+
     public static class MethodSignature {}
 }

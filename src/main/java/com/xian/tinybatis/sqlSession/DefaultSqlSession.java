@@ -24,10 +24,12 @@ public class DefaultSqlSession implements SqlSession{
 
 
     public <E> List<E> selectList(String statementId, Object param) throws Exception {
-        return null;
+        MappedStatement ms = configuration.getMappedStatement(statement);
+        return executor.query(ms, wrapCollection(parameter), rowBounds, Executor.NO_RESULT_HANDLER);
     }
 
     public <T> T selectOne(String statementId, Object params) throws Exception {
+
         return null;
     }
 
@@ -61,5 +63,10 @@ public class DefaultSqlSession implements SqlSession{
 
     public <T> T getMapper(Class<?> type) {
         return configuration.<T>getMapper(type, this);
+    }
+
+    @Override
+    public Configuration getConfiguration() {
+        return configuration;
     }
 }

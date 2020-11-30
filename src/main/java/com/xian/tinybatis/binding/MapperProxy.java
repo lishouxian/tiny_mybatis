@@ -2,6 +2,8 @@ package com.xian.tinybatis.binding;
 
 import com.xian.tinybatis.sqlSession.SqlSession;
 
+import java.io.Serializable;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -11,7 +13,7 @@ import java.util.Map;
  * @author lishouxian
  * @since 2020/11/30 09:50
  */
-public class MapperProxy <T>{
+public class MapperProxy <T> implements InvocationHandler, Serializable {
     private static final long serialVersionUID = -6424540398559729838L;
     private final SqlSession sqlSession;
     private final Class<T> mapperInterface;

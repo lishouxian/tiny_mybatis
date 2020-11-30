@@ -2,8 +2,6 @@ package com.xian.tinybatis.binding;
 
 import com.xian.tinybatis.sqlSession.SqlSession;
 
-import java.io.Serializable;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
