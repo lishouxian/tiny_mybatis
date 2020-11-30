@@ -6,6 +6,7 @@ import com.xian.tinybatis.sqlSession.SqlSession;
 import lombok.Data;
 
 import javax.sql.DataSource;
+import java.util.Map;
 
 
 /**
@@ -18,7 +19,7 @@ public class Configuration {
 
     private DataSource dataSource;
     private MapperRegistry mapperRegistry = new MapperRegistry();
-
+    Map<String, MappedStatement> mappedStatements =
     public DataSource getDataSource() {
         return dataSource;
     }

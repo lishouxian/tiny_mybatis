@@ -27,6 +27,8 @@ public class DefaultExecutor implements Executor {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        ResultSetHandler resultSetHandler = new ResultSetHandler(mappedStatement);
+        return resultSetHandler.handle(resultSet);
 
 
     }
