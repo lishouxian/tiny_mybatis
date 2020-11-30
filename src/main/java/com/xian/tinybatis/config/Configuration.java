@@ -1,6 +1,7 @@
 package com.xian.tinybatis.config;
 
 import com.xian.tinybatis.binding.MapperRegistry;
+import com.xian.tinybatis.sqlSession.MappedStatement;
 import com.xian.tinybatis.sqlSession.SqlSession;
 import lombok.Data;
 
@@ -33,5 +34,9 @@ public class Configuration {
 
     public <T> T getMapper(Class<?> type, SqlSession sqlSession) {
         return (T) mapperRegistry.getMapper(type, sqlSession);
+    }
+
+    public MappedStatement getMappedStatement(String statement) {
+        return new MappedStatement();
     }
 }

@@ -11,8 +11,7 @@ import java.util.List;
  *  SqlSession
  */
 public interface SqlSession {
-    <E> List<E> selectList(String statementId, Object param) throws
-            Exception;
+    <E> List<E> selectList(String statement, Object param);
 
     <T> T selectOne(String statementId, Object params) throws
             Exception;

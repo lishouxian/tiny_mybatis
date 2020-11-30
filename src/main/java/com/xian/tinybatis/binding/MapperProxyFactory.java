@@ -38,7 +38,7 @@ public class  MapperProxyFactory <T>{
 
     public  T newInstance(SqlSession sqlSession) {
         // 创建 MapperProxy 对象，MapperProxy 实现了 InvocationHandler 接口， // 代理逻辑封装在此类中
-        final MapperProxy<T> mapperProxy = new MapperProxy<T>(sqlSession, mapperInterface, methodCache);
+        final MapperProxy<T> mapperProxy = new MapperProxy<>(sqlSession, mapperInterface, methodCache);
         return newInstance(mapperProxy);
     }
 }

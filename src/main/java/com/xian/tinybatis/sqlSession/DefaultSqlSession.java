@@ -1,6 +1,8 @@
 package com.xian.tinybatis.sqlSession;
 
 import com.xian.tinybatis.config.Configuration;
+import com.xian.tinybatis.executor.DefaultExecutor;
+import com.xian.tinybatis.executor.Executor;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +14,9 @@ import java.util.List;
  */
 public class DefaultSqlSession implements SqlSession{
 
+
     private Configuration configuration;
+    private Executor executor;
 
     /**
      * 初始化方式
@@ -20,12 +24,16 @@ public class DefaultSqlSession implements SqlSession{
      */
     public DefaultSqlSession(Configuration configuration) {
         this.configuration = configuration;
+
+        this.executor = new DefaultExecutor();
+
     }
 
 
-    public <E> List<E> selectList(String statementId, Object param) throws Exception {
-        MappedStatement ms = configuration.getMappedStatement(statement);
-        return executor.query(ms, wrapCollection(parameter), rowBounds, Executor.NO_RESULT_HANDLER);
+    public <E> List<E> selectList(String sqlCommand, Object param) {
+        System.out.println(sqlCommand);
+        MappedStatement mappedStatement = configuration.getMappedStatement(sqlCommand);
+        return executor.query(mappedStatement,configuration);
     }
 
     public <T> T selectOne(String statementId, Object params) throws Exception {

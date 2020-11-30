@@ -9,6 +9,7 @@ import com.xian.tinybatis.sqlSession.SqlSessionFactory;
 import com.xian.tinybatis.sqlSession.SqlSessionFactoryBuilder;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author lishouxian
@@ -25,8 +26,10 @@ public class Test1 {
         SqlSessionFactory sqlSessionFactory = builder.build(configuration);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.selectOById(1);
-        System.out.println(user);
+        List<User> list = userMapper.selectList();
+        for (User user : list) {
+            System.out.println(user);
+        }
         sqlSession.close();
 
     }

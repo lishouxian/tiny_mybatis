@@ -2,6 +2,7 @@ package com.xian.tinybatis.mapper;
 
 
 
+import com.xian.tinybatis.announction.Select;
 import com.xian.tinybatis.bean.User;
 
 import java.util.List;
@@ -13,10 +14,11 @@ import java.util.List;
 public interface UserMapper {
 
     //查询所有用户
-
+    @Select("select * from user")
     List<User> selectList();
 
-    //根据条件进行用户查询
+    //根据条件进行用户查询id
+    @Select("select * from user where id = #{id}")
     User selectOne(User user);
 
     User selectOById(Integer id);

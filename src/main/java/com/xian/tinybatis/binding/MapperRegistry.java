@@ -24,6 +24,7 @@ public class MapperRegistry  {
         }
         try {
             // 创建代理对象
+            System.out.println("创建代理对象");
             return mapperProxyFactory.newInstance(sqlSession);
         } catch (Exception e) {
             System.out.println("创建代理对象失败");
@@ -36,7 +37,7 @@ public class MapperRegistry  {
     }
 
     public <T> void addMapper(Class<?> type) {
-        knownMappers.put(type, new MapperProxyFactory<>((Class<T>) type));
+        knownMappers.put(type, new MapperProxyFactory<>(type));
 
     }
 }

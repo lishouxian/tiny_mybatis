@@ -23,11 +23,7 @@ public class MapperMethod {
     }
 
     public Object execute(SqlSession sqlSession, Object[] args) {
-        Object result = null;
-
-
-
-        return result;
+        return sqlSession.selectList(command, args);
     }
 
 
