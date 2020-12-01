@@ -1,5 +1,6 @@
 package com.xian.tinybatis.sqlSession;
 
+import com.xian.tinybatis.config.Configuration;
 import lombok.Data;
 
 /**
@@ -10,8 +11,8 @@ import lombok.Data;
  */
 @Data
 public class MappedStatement <T> {
-    String sqlCommand;
-    private final SqlSession sqlSession;
+    public String sqlCommand;
+    private final Configuration configuration;
     private final Class<T> mapperInterface;
 
 }

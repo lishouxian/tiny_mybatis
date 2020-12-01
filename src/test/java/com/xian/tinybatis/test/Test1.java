@@ -26,10 +26,7 @@ public class Test1 {
         SqlSessionFactory sqlSessionFactory = builder.build(configuration);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<User> list = userMapper.selectList();
-        for (User user : list) {
-            System.out.println(user);
-        }
+
         sqlSession.close();
 
     }

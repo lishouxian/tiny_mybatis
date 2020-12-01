@@ -19,6 +19,6 @@ public class ResultSetHandler {
     }
 
     public <E> List<E> handle(ResultSet resultSet) {
-
+        return null;
     }
 }

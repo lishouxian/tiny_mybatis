@@ -2,6 +2,8 @@ package com.xian.tinybatis.test;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.xian.tinybatis.config.Configuration;
+import com.xian.tinybatis.mapper.UserMapper;
+import com.xian.tinybatis.sqlSession.MappedStatement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -29,6 +31,11 @@ public class DirectConfiguration {
             e.printStackTrace();
         }
         CONFIGURATION.setDataSource(dataSource);
+
+        MappedStatement<UserMapper> userMapperMappedStatement = new MappedStatement<>(CONFIGURATION, UserMapper.class);
+        userMapperMappedStatement.setSqlCommand("select * from user");
+        CONFIGURATION.addMappedStatement("com.xian.tinybatis.mapper.UserMapper.selectList",userMapperMappedStatement);
+
         return CONFIGURATION;
 
     }

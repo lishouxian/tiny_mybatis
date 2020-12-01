@@ -30,13 +30,13 @@ public class DefaultSqlSession implements SqlSession{
     }
 
 
-    public <E> List<E> selectList(String sqlCommand, Object param) {
-        System.out.println(sqlCommand);
-        MappedStatement mappedStatement = configuration.getMappedStatement(sqlCommand);
+    public <E> List<E> selectList(String statement, Object param) {
+        System.out.println(statement);
+        MappedStatement mappedStatement = configuration.getMappedStatement(statement);
         return executor.query(mappedStatement,configuration);
     }
 
-    public <T> T selectOne(String statementId, Object params) throws Exception {
+    public <T> T selectOne(String statement, Object params) throws Exception {
 
         return null;
     }

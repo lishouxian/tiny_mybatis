@@ -16,18 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class  MapperProxyFactory <T>{
     private final Class<T> mapperInterface;
-    private Map<Method, MapperMethod> methodCache = new ConcurrentHashMap<Method, MapperMethod>();
+    //TODO 添加缓存
 
     public MapperProxyFactory(Class<T> mapperInterface) {
         this.mapperInterface = mapperInterface;
-    }
-
-    public Class<T> getMapperInterface() {
-        return mapperInterface;
-    }
-
-    public Map<Method, MapperMethod> getMethodCache() {
-        return methodCache;
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +30,7 @@ public class  MapperProxyFactory <T>{
 
     public  T newInstance(SqlSession sqlSession) {
         // 创建 MapperProxy 对象，MapperProxy 实现了 InvocationHandler 接口， // 代理逻辑封装在此类中
-        final MapperProxy<T> mapperProxy = new MapperProxy<>(sqlSession, mapperInterface, methodCache);
+        final MapperProxy<T> mapperProxy = new MapperProxy<>(sqlSession, mapperInterface);
         return newInstance(mapperProxy);
     }
 }
